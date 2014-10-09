@@ -1,0 +1,47 @@
+<h1>You Guessed!</h1>
+<br><hr>
+<%= form_tag("/wladder", method: "get") do %>
+<table border="1">
+<tr>
+<td>Start:</td>
+<td><b><%= params[:start_word] %></b></td>
+</tr>
+<% if !params[:step1].blank? %>
+<tr>
+<td>Step 1:</td>
+<td><%= @step1 %></td>
+</tr>
+<% end %>
+<% if !params[:step2].blank? %>
+<tr>
+<td>Step 2:</td>
+<td><%= @step2 %></td>
+</tr>
+<% end %>
+<% if !params[:step3].blank? %>
+<tr>
+<td>Step 3:</td>
+<td><%= @step3 %></td>
+</tr>
+<% end %>
+<% if !params[:step4].blank? %>
+<tr>
+<td>Step 4:</td>
+<td><%= @step4 %></td>
+</tr>
+<% end %>
+<% if !params[:step5] %>
+<tr>
+<td>Step 5:</td>
+<td><%= @step5 %></td>
+</tr>
+<% end %>
+<tr>
+<td>Goal: </td>
+<td><b><%= params[:goal] %></b></td>
+</tr>
+</table>
+<br><br>
+<%= submit_tag "Play Again" %>
+<h1> <%= @winning_message %>
+<% end %>

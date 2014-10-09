@@ -1,1 +1,30 @@
-<h1><%= @greeting %></h1>
+<h1><%= @page_header %></h1>
+<br><br><hr>
+<%= form_tag("/wladder/shazam", method: "get") do %>
+	<%= label_tag 'step0', 'Step 0:  ' %>
+	<b><%= @start_words[0] %></b>
+	<br>
+	<%= label_tag 'step1', 'Step 1:' %>
+	<%= text_field_tag 'step1' %>
+	<br>
+	<%= label_tag 'step2', 'Step 2:' %>
+	<%= text_field_tag 'step2' %>
+	<br>
+	<%= label_tag 'step3', 'Step 3:' %>
+	<%= text_field_tag 'step3' %>
+	<br>
+	<%= label_tag 'step4', 'Step 4:' %>
+	<%= text_field_tag 'step4' %>
+	<br>
+	<%= label_tag 'step5', 'Step 5:' %>
+	<%= text_field_tag 'step5' %>
+	<br>
+	<%= label_tag 'goal', 'Goal:  ' %>
+	<b><%= @start_words[1] %></b>
+	<br>
+	<%= hidden_field_tag 'start_word', @start_words[0] %>
+	<%= hidden_field_tag 'goal', @start_words[1] %>
+	<%= submit_tag "Check", :start_word => @start_words[0], :goal => @start_words[1] %>
+<% end %>
+<br><br><hr>
+<footer><%= @by_line %></footer>
