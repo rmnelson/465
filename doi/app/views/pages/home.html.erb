@@ -1,0 +1,13 @@
+<h1 style="color:white"><%= @page_header %></h1>
+<center><img src="/images/doi_logo_for_display.gif"></img></center>
+<br><br>
+<%= form_tag("/doi/go", method: "GET") do %>
+<center>
+	<%= text_field_tag(:q) %>
+	<br><br>
+        <%= submit_tag "Convert" %>
+        <%= submit_tag "New" %>
+        <%= submit_tag "Edit" %>
+</center>
+<% end %>
+<br><br>
