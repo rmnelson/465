@@ -1,13 +1,37 @@
 <h1 style="color:white"><%= @page_header %></h1>
 <center><img src="/images/doi_logo_for_display.gif"></img></center>
 <br><br>
-<%= form_tag("/doi/go", method: "GET") do %>
+<%= form_tag("/doi", method: "GET") do %>
 <center>
-	<%= text_field_tag(:q) %>
+	<%= text_field_tag(:q, nil, size: 75) %>
 	<br><br>
         <%= submit_tag "Convert" %>
         <%= submit_tag "New" %>
         <%= submit_tag "Edit" %>
 </center>
+
+<% if params[:commit] == "New" then %>
+<%= "This is new!" %>
+<%= params[:q] %>
+<% end %>
+
+<% if params[:commit] == "Convert" then %>
+<%= "This is Convert!" %>
+<%= params[:q] %>
+<% end %>
+
+<% if params[:commit] == "Edit" then %>
+<%= "This is Edit!" %>
+<%= params[:q] %>
+<% end %>
+
+<% if false %>
+<% @doi_bases.each do |d| %>
+<%= d.id %>
+<%= d.doi_path %>
+<%= d.created %>
+<% end %>
+
+<% end %>
 <% end %>
 <br><br>
