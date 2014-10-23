@@ -1,5 +1,7 @@
+<%= @jshide_code.html_safe %> 
+<%= @some_style.html_safe %>
 <h1 style="color:white"><%= @page_header %></h1>
-<center><img src="/images/doi_logo_for_display.gif"></img></center>
+<center><a href="http://ec2-54-69-75-154.us-west-2.compute.amazonaws.com/doi" border="none"><img src="/images/doi_logo_for_display.gif"></img></a></center>
 <br><br>
 <%= form_tag("/doi", method: "GET") do %>
 <center>
@@ -11,27 +13,69 @@
 </center>
 
 <% if params[:commit] == "New" then %>
-<%= "This is new!" %>
+<br><br><center>
+<%= label_tag("URL (your http link): ") %>
+<%= text_field_tag(:e_url) %>
+<br>
+<%= label_tag("Name: ") %>
+<%= text_field_tag(:e_name) %>
+<br>
+<%= label_tag("Description: ") %>
+<%= text_field_tag(:e_desc) %>
+<br>
+<%= submit_tag "Create" %>
 <%= params[:q] %>
+</center>
+<% end %>
+
+<% if params[:commit] == "Create" then %>
+<% new_doi = DoiBase.new %>
+<% new_doi_his =  DoiHistory.new %>
+<% new_doi.doi_path = @my_doi_reg + "." + rand(10**8).to_s + "/" + rand(10**12).to_s %>
+<% new_doi_his.name = params[:e_name] %>
+<% new_doi_his.description = params[:e_desc] %>
+<% new_doi_his.url = params[:e_url] %>
+<% new_doi.save %>
+<% new_doi_his.doi_base_id = new_doi.id %>
+<% new_doi_his.save %>
 <% end %>
 
 <% if params[:commit] == "Convert" then %>
-<%= "This is Convert!" %>
-<%= params[:q] %>
+<br><br><center>
+<% @DoiBaseResult = DoiBase.where(doi_path: params[:q]) %>
+<% @DoiBaseResult.each do |r| %>
+<% @DoiHistoryResult = DoiHistory.where(doi_base_id: r.id).last %> 
+<%= "<a href=\"".html_safe + @DoiHistoryResult.url + "\">".html_safe + @DoiHistoryResult.url + "</a>".html_safe %>
+<%end%>
 <% end %>
 
 <% if params[:commit] == "Edit" then %>
-<%= "This is Edit!" %>
-<%= params[:q] %>
+<% if params[:q].empty? %>
+<br><br><center>
+<%= "You didn't search for anything so here are all of them" %>
+<br>
+<br>
+<% @doi_bases.each_with_index do |d, i| %>
+<% @some_html = "<a href=\"#\" id=\"hidden" + i.to_s + "-show\" class=\"showLink\" onclick=\"showHide('hidden" + i.to_s + "');return false;\">Edit.</a>" %>
+<%= d.doi_path %> 
+<%= @some_html.html_safe %>
+<% @place_holder = DoiHistory.where(doi_base_id: d.id)%>
+<% @place_holder.each do |p| %>
+<% @some_div =  "<div id=\"hidden" + i.to_s + "\" class=\"more\">" %>
+<%= @some_div.html_safe %>
+<%= "Name: " + p.name %>
+<br>
+<%= "Description: " + p.description %>
+<br>
+<%= "URL: " + p.url %>
+<% @more_html ="<a href=\"#\" id=\"hidden" + i.to_s + "-hidden\" class=\"hideLink\" onclick=\"showHide('hidden" + i.to_s + "');return false;\">Less.</a>" %>
+<%= @more_html.html_safe %>
+<%= "</div>".html_safe %>
+<br>
+<%end%>
+<% end %>
+</center>
 <% end %>
 
-<% if false %>
-<% @doi_bases.each do |d| %>
-<%= d.id %>
-<%= d.doi_path %>
-<%= d.created %>
-<% end %>
-
 <% end %>
 <% end %>
-<br><br>
