@@ -16,7 +16,7 @@ DoiBase.create(doi_path: '666.71298439/565134566473')
 DoiBase.create(doi_path: '666.76860935/158646984892')
 DoiBase.create(doi_path: '666.14909332/518051274890')
 DoiBase.create(doi_path: '666.35351243/809798096663')
-DoiBase.create(doi_path: '666.35351243/809798096663')
+DoiBase.create(doi_path: '666.35351243/809798096693')
 #DoiBase.create(doi_path: '')
 
 DoiHistory.create(name: 'A shitty search engine', description: 'They send all your data to everywhere', url: 'http://www.google.com', created: Time.now, updated: Time.now, doi_base_id: '1')
