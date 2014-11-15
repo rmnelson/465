@@ -35,7 +35,8 @@ end
 
 
 <center>
-<%= image_tag(root_url + "/images/" + @image.filename, width: '50%', alt: @image.filename) %>
+<%= image_tag(root_url + "public/images/" + @image.filename, width: '50%', alt: @image.filename) %>
+<br><%= link_to 'Back', images_path %>
 <br>Image owner: <%= @image.user.name %>
 <% if @image.tags.count == 0 then %> 
 	<%= "<br><br>No tags!".html_safe + @some_html.html_safe %> 

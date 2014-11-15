@@ -14,7 +14,7 @@
   <% @images.each do |image| %>
 	<% if !image.private? then %>
 		<tr>
-		<td><%= link_to(image_tag(root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
+		<td><%= link_to(image_tag(root_url + "public/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
 		<td><%= image.private %></td>
 		<td><%= image.user.name %></td>
 		<% if user_signed_in? and (current_user.id == image.user_id or image.acls.exists?(current_user.id)) then %>
@@ -27,7 +27,7 @@
 		if user_signed_in? then
 			if image.user_id == current_user.id or image.acls.exists?(current_user.id) then %>
 				<tr>
-				<td><%= link_to(image_tag(root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
+				<td><%= link_to(image_tag(root_url + "public/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
 				<td><%= image.private %></td>
 				<td><%= image.user.name %></td>
 				<td><%= link_to 'Show', image %></td>
