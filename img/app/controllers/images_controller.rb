@@ -4,6 +4,12 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+  if Rails.env.development? then
+	@IMAGE_PATH = "images/"
+  else
+	@IMAGE_PATH = "public/images/"
+  end
+
     respond_with(@images)
   end
 
@@ -24,8 +30,7 @@ class ImagesController < ApplicationController
     @image.user = current_user
 
     @uploaded_io = params[:image][:uploaded_file]
-    #@image.filename = rand(10**8).to_s + ".jpg" 
-    @image.filename = @uploaded_io.original_filename 
+    @image.filename = current_user.id.to_s + "_" + rand(10**5).to_s + "_" + @uploaded_io.original_filename 
 
     File.open(Rails.root.join('public', 'images', @image.filename), 'wb') do |file|
         file.write(@uploaded_io.read)
@@ -61,6 +66,12 @@ class ImagesController < ApplicationController
 
   def click
     @image = Image.find(params[:image_id])
+  if Rails.env.development? then
+	@IMAGE_PATH = "images/"
+  else
+	@IMAGE_PATH = "public/images/"
+  end
+
     @jshide_code ="<script language=\"javascript\" type=\"text/javascript\">
 function showHide(shID) {
    if (document.getElementById(shID)) {
