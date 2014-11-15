@@ -1,0 +1,106 @@
+<%= @jshide_code.html_safe %>
+<%= @some_style.html_safe %>
+<% if params[:commit] == "Update" then
+	@image.tags_attributes = [ { :id => params[:update_tag_id], :tag_string => params[:update_tag] } ] 
+	@image.save
+end
+%>
+<% if params[:commit] == "Destroy" then
+	@image.tags_attributes = [ { :id => params[:update_tag_id], '_destroy' => '1' } ]
+	@image.save
+end
+%>
+<% if params[:commit] == "Add" then
+	@image.tags_attributes = [ { :tag_string => params[:update_tag] } ]
+	@image.save
+end
+%>
+<% if params[:commit] == "Grant" then
+	@image.acls_attributes = [ { :user_id => params[:allow_user] } ]
+	@image.save
+end
+%>
+<% if params[:commit] == "Revoke" then
+	params["remove"].each do |del| %>
+		<%@image.acls.delete(del[1])
+	end
+end
+%>
+<%
+@some_html = "<a href=\"#\" id=\"hidden0-show\" class=\"showLink\" onclick=\"showHide('hidden0');return false;\">add a tag</a>" 
+@some_div = "<div id=\"hidden0\" class=\"more\">"
+@more_html = "<a href=\"#\" id=\"hidden0-hidden\" class=\"hideLink\" onclick=\"showHide('hidden0');return false;\">Hide.</a>" 
+%>
+
+
+
+<center>
+<%= image_tag(root_url + "/images/" + @image.filename, width: '50%', alt: @image.filename) %>
+<br>Image owner: <%= @image.user.name %>
+<% if @image.tags.count == 0 then %> 
+	<%= "<br><br>No tags!".html_safe + @some_html.html_safe %> 
+	<%= @some_div.html_safe %>
+	<%= form_tag(image_click_path, method: "GET") do %>
+		<%= "Tag: ".html_safe + text_field_tag(:update_tag) %>
+	        <%= @more_html.html_safe %>
+		<%= submit_tag "Add" %>
+		<%= "</div>".html_safe %>
+	<%end%>
+   <% else %>
+	<table>
+	<tbody>
+	<br>
+	tags:
+	<% @image.tags.each do |tag| %>
+		<%= form_tag(image_click_path, method: "GET") do %>
+			<tr>
+			<td><%= tag.id %></td>
+			<% if current_user.id == @image.user_id then %>
+				<td><%= text_field_tag(:update_tag, value = tag.tag_string) %></td>
+				<td><%= submit_tag("Update") %></td>
+				<%= hidden_field_tag 'update_tag_id', tag.id %>
+				<td><%= submit_tag("Destroy") %></td>
+			<% else %> 
+				<td><%= tag.tag_string %></td>
+			<%end%>
+			</tr>
+		<%end%>
+	<% end %> 
+	</tbody>
+	</table>
+        <%= @some_html.html_safe %>
+        <%= @some_div.html_safe %>
+        <%= form_tag(image_click_path, method: "GET") do %>
+                <%= "Tag: ".html_safe + text_field_tag(:update_tag) %>
+                <%= @more_html.html_safe %>
+                <%= submit_tag "Add" %>
+                <%= "</div>".html_safe %>
+        <%end%>
+<%end%>
+
+<% if current_user.id == @image.user_id then %>
+	<% @foos = User.all %>
+	<%= form_tag(image_click_path, method: "GET") do %> 
+		<%= select_tag('allow_user', options_from_collection_for_select(User.all, 'id', 'name_email')) %>
+		<%= submit_tag("Grant") %>
+	<%end%>
+
+	<% if @image.acls.count != 0 then %>
+		<table>
+		<tbody>
+		<%= form_tag(image_click_path, method: "GET") do %> 
+			<% @image.acls.each_with_index do |acl, i| %>
+				<% @user_name = User.find(acl.user_id).name %>
+				<tr>
+				<td><%= check_box_tag("remove[#{i}]", acl.id) %></td>
+				<td><%= label_tag("acl", @user_name) %></td>
+				</tr>
+			<%end%>
+			<td><%= submit_tag("Revoke") %></td>
+		<%end%>
+		</tbody>
+		</table>
+	<%end%>
+<%end%>
+
+</center>

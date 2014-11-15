@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @acl.image_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @acl.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @acl.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @acl.user %>
+</p>
+
+<%= link_to 'Edit', edit_acl_path(@acl) %> |
+<%= link_to 'Back', image_acls_path %>

@@ -1,7 +1,7 @@
 <%= @jshide_code.html_safe %> 
 <%= @some_style.html_safe %>
 <h1 style="color:white"><%= @page_header %></h1>
-<center><a href="http://ec2-54-69-75-154.us-west-2.compute.amazonaws.com/doi" border="none"><img src="/images/doi_logo_for_display.gif"></img></a></center>
+<center><a href="http://ec2-54-69-75-154.us-west-2.compute.amazonaws.com/doi" border="none"><img src="/images/doi_logo_for_display.gif"></a></center>
 <br><br>
 <%= form_tag("/doi", method: "GET") do %>
 <center>
@@ -67,20 +67,31 @@
   <% @DoiHistoryResult = DoiHistory.where(doi_base_id: r.id).last %> 
   <%= "<a href=\"".html_safe + @DoiHistoryResult.url + "\">".html_safe + @DoiHistoryResult.url + "</a>".html_safe %>
  <%end%>
-<% else if !@query.empty? then%>
+<%end%>
+<% if /^\/*\/^/.match(@query) then %>
+<% @DoiHistoryResult = DoiHistory.all %> 
+<% @DoiHistoryResult.each do |r| %>
+<%  if #{@query} =~ r.name then
+	  @DoiBaseResult = DoiBase.find(r.doi_base_id) %>
+	<%= @DoiBaseResult.doi_path + " matches your search".html_safe %>
+	<br>
+  <%end%>
+ <%end%>
+<%end%>
+<% if !@query.empty? then %>
  <% @query = "%" + params[:q] + "%" %>
  <% if (@DoiHistoryResult = DoiHistory.where("name like ?", @query).last) then %>
  <% @DoiBaseResult = DoiBase.find(@DoiHistoryResult.doi_base_id) %>
  <%= @DoiBaseResult.doi_path + " matches your search".html_safe %>
  <br>
+ <%end%>
 <%end%>
-<% else %>
+<% if @query.empty? then %>
 <br>
 <br>
 <%= "You didn't search for anything! Try again!!" %>
 <%end%>
 <%end%>
-<% end %>
 
 <% if params[:commit] == "Edit" then %>
 <% if params[:q].empty? %>

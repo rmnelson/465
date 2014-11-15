@@ -1,0 +1,47 @@
+<center><h1>Listing images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Private</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @images.each do |image| %>
+	<% if !image.private? then %>
+		<tr>
+		<td><%= link_to(image_tag(root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
+		<td><%= image.private %></td>
+		<td><%= image.user.name %></td>
+		<% if user_signed_in? and (current_user.id == image.user_id or image.acls.exists?(current_user.id)) then %>
+			<td><%= link_to 'Show', image %></td>
+			<td><%= link_to 'Edit', edit_image_path(image) %></td>
+			<td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<%end%>
+	        </tr>
+	<% else 
+		if user_signed_in? then
+			if image.user_id == current_user.id or image.acls.exists?(current_user.id) then %>
+				<tr>
+				<td><%= link_to(image_tag(root_url + "/images/" + image.filename, size: "100x100", alt: image.filename), image_click_path(image)) %></td>
+				<td><%= image.private %></td>
+				<td><%= image.user.name %></td>
+				<td><%= link_to 'Show', image %></td>
+				<td><%= link_to 'Edit', edit_image_path(image) %></td>
+				<td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<%end%>
+
+		<%end%>
+       <% end %>
+    <% end %>
+  </tbody>
+</table>
+</center>
+<br>
+
+<%= link_to 'New Image', new_image_path %>
