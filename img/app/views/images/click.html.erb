@@ -56,7 +56,8 @@ end
 		<%= form_tag(image_click_path, method: "GET") do %>
 			<tr>
 			<td><%= tag.id %></td>
-			<% if current_user.id == @image.user_id or @image.acls.exists?(current_user.id) then %>
+			<%-# if current_user.id == @image.user_id or @image.acls.exists?(current_user.id) then %>
+			<% if current_user.id == @image.user_id then %>
 				<td><%= text_field_tag(:update_tag, value = tag.tag_string) %></td>
 				<td><%= submit_tag("Update") %></td>
 				<%= hidden_field_tag 'update_tag_id', tag.id %>
