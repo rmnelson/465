@@ -1,6 +1,6 @@
 User.create!([
-  {email: "ryan@rnelnet.com", encrypted_password: "$2a$10$nY5PQBMYUPFx8Tgus7PxiuNMaRe50uNcts6ls.HjWiHMR0.TmPMEC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2014-11-15 23:33:13", last_sign_in_at: "2014-11-15 23:29:02", current_sign_in_ip: "24.7.165.67", last_sign_in_ip: "24.7.165.67", name: "ryan"},
-  {email: "bob@rnelnet.com", encrypted_password: "$2a$10$Ddw4fQV.othjyhuPhJzfVuW.7JolPqS4UxwWx4aOfb4rXvLEoLLfS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2014-11-15 23:32:41", last_sign_in_at: "2014-11-15 23:30:09", current_sign_in_ip: "24.7.165.67", last_sign_in_ip: "24.7.165.67", name: "bob"}
+  {email: "ryan@rnelnet.com", password: "pass4ryan", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2014-11-15 23:33:13", last_sign_in_at: "2014-11-15 23:29:02", current_sign_in_ip: "24.7.165.67", last_sign_in_ip: "24.7.165.67", name: "ryan"},
+  {email: "bob@rnelnet.com", password: "pass4bob", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2014-11-15 23:32:41", last_sign_in_at: "2014-11-15 23:30:09", current_sign_in_ip: "24.7.165.67", last_sign_in_ip: "24.7.165.67", name: "bob"}
 ])
 Acl.create!([
   {image_id: 4, user_id: 1}
