@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ssid_id: 
+  user_id: 
+
+two:
+  ssid_id: 
+  user_id: 

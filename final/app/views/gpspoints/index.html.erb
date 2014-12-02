@@ -1,0 +1,45 @@
+<h1>Listing gpspoints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Num sats</th>
+      <th>Hdofp</th>
+      <th>Altitude</th>
+      <th>Hofgae</th>
+      <th>Speed km</th>
+      <th>Speed mph</th>
+      <th>Angle</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gpspoints.each do |gpspoint| %>
+      <tr>
+        <td><%= gpspoint.latitude %></td>
+        <td><%= gpspoint.longitude %></td>
+        <td><%= gpspoint.num_sats %></td>
+        <td><%= gpspoint.hdofp %></td>
+        <td><%= gpspoint.altitude %></td>
+        <td><%= gpspoint.hofgae %></td>
+        <td><%= gpspoint.speed_km %></td>
+        <td><%= gpspoint.speed_mph %></td>
+        <td><%= gpspoint.angle %></td>
+        <td><%= gpspoint.date %></td>
+        <td><%= gpspoint.time %></td>
+        <td><%= link_to 'Show', gpspoint %></td>
+        <td><%= link_to 'Edit', edit_gpspoint_path(gpspoint) %></td>
+        <td><%= link_to 'Destroy', gpspoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gpspoint', new_gpspoint_path %>

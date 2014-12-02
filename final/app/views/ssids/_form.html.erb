@@ -1,0 +1,81 @@
+<%= form_for(@ssid) do |f| %>
+  <% if @ssid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ssid.errors.count, "error") %> prohibited this ssid from being saved:</h2>
+
+      <ul>
+      <% @ssid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ssid %><br>
+    <%= f.text_field :ssid %>
+  </div>
+  <div class="field">
+    <%= f.label :bssid %><br>
+    <%= f.text_field :bssid %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacture %><br>
+    <%= f.text_field :manufacture %>
+  </div>
+  <div class="field">
+    <%= f.label :auth %><br>
+    <%= f.text_field :auth %>
+  </div>
+  <div class="field">
+    <%= f.label :encryption %><br>
+    <%= f.text_field :encryption %>
+  </div>
+  <div class="field">
+    <%= f.label :sec_type %><br>
+    <%= f.number_field :sec_type %>
+  </div>
+  <div class="field">
+    <%= f.label :radio_type %><br>
+    <%= f.text_field :radio_type %>
+  </div>
+  <div class="field">
+    <%= f.label :channel %><br>
+    <%= f.number_field :channel %>
+  </div>
+  <div class="field">
+    <%= f.label :transfer_rates %><br>
+    <%= f.text_field :transfer_rates %>
+  </div>
+  <div class="field">
+    <%= f.label :special_transfer_rates %><br>
+    <%= f.text_field :special_transfer_rates %>
+  </div>
+  <div class="field">
+    <%= f.label :high_signal %><br>
+    <%= f.number_field :high_signal %>
+  </div>
+  <div class="field">
+    <%= f.label :high_rssi %><br>
+    <%= f.number_field :high_rssi %>
+  </div>
+  <div class="field">
+    <%= f.label :net_type %><br>
+    <%= f.text_field :net_type %>
+  </div>
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

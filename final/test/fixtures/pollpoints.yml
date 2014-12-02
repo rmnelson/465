@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ssid_id: 
+  gps_id: 
+  signal: 1
+  rssi: 1
+
+two:
+  ssid_id: 
+  gps_id: 
+  signal: 1
+  rssi: 1

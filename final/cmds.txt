@@ -1,0 +1,77 @@
+rails new final
+cd final
+echo "
+gem 'devise'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'seed_dump'
+" >> Gemfile
+bundle install
+rails generate devise:install
+rails g devise user name:string
+rails g scaffold ssid ssid:string bssid:string manufacture:string auth:string encryption:string sec_type:integer radio_type:string channel:integer transfer_rates:string special_transfer_rates:string high_signal:integer high_rssi:integer net_type:string label:string public:boolean user:references
+rails g scaffold gpspoint latitude:string longitude:string num_sats:integer hdofp:float altitude:float hofgae:float speed_km:float speed_mph:float angle:float date:date time:time
+rails g scaffold pollpoint ssid:references gps:references signal:integer rssi:integer
+rails g scaffold acl ssid:references user:references
+rails g devise:views
+rails g devise:controllers user
+rails g controller start index
+#===============================================================================
+#
+#Some setup you must do manually if you haven't yet:
+#
+#  Ensure you have overridden routes for generated controllers in your route.rb.
+#  For example:
+#
+#    Rails.application.routes.draw do
+#      devise_for :users, controllers: {
+#        sessions: 'sessions'
+#      }
+#    end
+#
+#===============================================================================
+cat << EOF > ./config/routes.rb
+Rails.application.routes.draw do
+  get 'start/index'
+  post 'start/upload'
+  resources :ssids do
+        resources :pollpoints, :shallow => true
+        resources :acls, :shallow => true
+  end
+  resources :gpspoints
+  devise_for :users
+  root to: 'start#index'
+end
+EOF
+#sed -i '' -e'3irespond_to :html' app/controllers/ssids_controller.rb 2>/dev/null
+#sed -i '' -e'3irespond_to :html' app/controllers/gpspoints_controller.rb 2>/dev/null
+#sed -i '' -e'3irespond_to :html' app/controllers/acls_controller.rb 2>/dev/null
+#sed -i '' -e'3irespond_to :html' app/controllers/application_controller.rb 2>/dev/null
+#sed -i '' -e'3irespond_to :html' app/controllers/pollpoints_controller.rb 2>/dev/null
+find ./app/views -name *json.jbuilder -exec rm -f {} \;
+cat << EOF > ./app/models/ssid.rb
+class Ssid < ActiveRecord::Base
+  belongs_to :user
+  has_many :pullpoints
+  has_many :gpspoints, through: :pollpoints
+  accepts_nested_attributes_for :pullpoints, :allow_destroy => true
+end
+EOF
+cat << EOF > ./app/models/user.rb
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :ssids, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  def name_email
+        "#{name} #{email}"
+  end
+end
+EOF
+rake db:migrate RAILS_ENV=development

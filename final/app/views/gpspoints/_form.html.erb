@@ -1,0 +1,61 @@
+<%= form_for(@gpspoint) do |f| %>
+  <% if @gpspoint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gpspoint.errors.count, "error") %> prohibited this gpspoint from being saved:</h2>
+
+      <ul>
+      <% @gpspoint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :num_sats %><br>
+    <%= f.number_field :num_sats %>
+  </div>
+  <div class="field">
+    <%= f.label :hdofp %><br>
+    <%= f.text_field :hdofp %>
+  </div>
+  <div class="field">
+    <%= f.label :altitude %><br>
+    <%= f.text_field :altitude %>
+  </div>
+  <div class="field">
+    <%= f.label :hofgae %><br>
+    <%= f.text_field :hofgae %>
+  </div>
+  <div class="field">
+    <%= f.label :speed_km %><br>
+    <%= f.text_field :speed_km %>
+  </div>
+  <div class="field">
+    <%= f.label :speed_mph %><br>
+    <%= f.text_field :speed_mph %>
+  </div>
+  <div class="field">
+    <%= f.label :angle %><br>
+    <%= f.text_field :angle %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

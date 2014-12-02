@@ -1,0 +1,33 @@
+<%= form_for(@pollpoint) do |f| %>
+  <% if @pollpoint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pollpoint.errors.count, "error") %> prohibited this pollpoint from being saved:</h2>
+
+      <ul>
+      <% @pollpoint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ssid_id %><br>
+    <%= f.text_field :ssid_id %>
+  </div>
+  <div class="field">
+    <%= f.label :gps_id %><br>
+    <%= f.text_field :gps_id %>
+  </div>
+  <div class="field">
+    <%= f.label :signal %><br>
+    <%= f.number_field :signal %>
+  </div>
+  <div class="field">
+    <%= f.label :rssi %><br>
+    <%= f.number_field :rssi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

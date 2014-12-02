@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @gpspoint.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @gpspoint.longitude %>
+</p>
+
+<p>
+  <strong>Num sats:</strong>
+  <%= @gpspoint.num_sats %>
+</p>
+
+<p>
+  <strong>Hdofp:</strong>
+  <%= @gpspoint.hdofp %>
+</p>
+
+<p>
+  <strong>Altitude:</strong>
+  <%= @gpspoint.altitude %>
+</p>
+
+<p>
+  <strong>Hofgae:</strong>
+  <%= @gpspoint.hofgae %>
+</p>
+
+<p>
+  <strong>Speed km:</strong>
+  <%= @gpspoint.speed_km %>
+</p>
+
+<p>
+  <strong>Speed mph:</strong>
+  <%= @gpspoint.speed_mph %>
+</p>
+
+<p>
+  <strong>Angle:</strong>
+  <%= @gpspoint.angle %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @gpspoint.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @gpspoint.time %>
+</p>
+
+<%= link_to 'Edit', edit_gpspoint_path(@gpspoint) %> |
+<%= link_to 'Back', gpspoints_path %>

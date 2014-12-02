@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ssid:</strong>
+  <%= @acl.ssid %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @acl.user %>
+</p>
+
+<%= link_to 'Edit', edit_acl_path(@acl) %> |
+<%= link_to 'Back', acls_path %>

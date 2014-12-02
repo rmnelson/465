@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ssid:</strong>
+  <%= @ssid.ssid %>
+</p>
+
+<p>
+  <strong>Bssid:</strong>
+  <%= @ssid.bssid %>
+</p>
+
+<p>
+  <strong>Manufacture:</strong>
+  <%= @ssid.manufacture %>
+</p>
+
+<p>
+  <strong>Auth:</strong>
+  <%= @ssid.auth %>
+</p>
+
+<p>
+  <strong>Encryption:</strong>
+  <%= @ssid.encryption %>
+</p>
+
+<p>
+  <strong>Sec type:</strong>
+  <%= @ssid.sec_type %>
+</p>
+
+<p>
+  <strong>Radio type:</strong>
+  <%= @ssid.radio_type %>
+</p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @ssid.channel %>
+</p>
+
+<p>
+  <strong>Transfer rates:</strong>
+  <%= @ssid.transfer_rates %>
+</p>
+
+<p>
+  <strong>Special transfer rates:</strong>
+  <%= @ssid.special_transfer_rates %>
+</p>
+
+<p>
+  <strong>High signal:</strong>
+  <%= @ssid.high_signal %>
+</p>
+
+<p>
+  <strong>High rssi:</strong>
+  <%= @ssid.high_rssi %>
+</p>
+
+<p>
+  <strong>Net type:</strong>
+  <%= @ssid.net_type %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @ssid.label %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @ssid.public %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ssid.user %>
+</p>
+
+<%= link_to 'Edit', edit_ssid_path(@ssid) %> |
+<%= link_to 'Back', ssids_path %>

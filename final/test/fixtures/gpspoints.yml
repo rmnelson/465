@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: MyString
+  longitude: MyString
+  num_sats: 1
+  hdofp: 1.5
+  altitude: 1.5
+  hofgae: 1.5
+  speed_km: 1.5
+  speed_mph: 1.5
+  angle: 1.5
+  date: 2014-12-02
+  time: 2014-12-02 06:07:26
+
+two:
+  latitude: MyString
+  longitude: MyString
+  num_sats: 1
+  hdofp: 1.5
+  altitude: 1.5
+  hofgae: 1.5
+  speed_km: 1.5
+  speed_mph: 1.5
+  angle: 1.5
+  date: 2014-12-02
+  time: 2014-12-02 06:07:26
