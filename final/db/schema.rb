@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20141202060729) do
 
   create_table "pollpoints", force: true do |t|
     t.integer  "ssid_id"
-    t.integer  "gps_id"
+    t.integer  "gpspoint_id"
     t.integer  "signal"
     t.integer  "rssi"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pollpoints", ["gps_id"], name: "index_pollpoints_on_gps_id"
+  add_index "pollpoints", ["gpspoint_id"], name: "index_pollpoints_on_gpspoint_id"
   add_index "pollpoints", ["ssid_id"], name: "index_pollpoints_on_ssid_id"
 
   create_table "ssids", force: true do |t|

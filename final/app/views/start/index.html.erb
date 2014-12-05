@@ -55,6 +55,8 @@ xhr.open('POST', '/start/upload');
 xhr.onload = function () {
   if (xhr.status === 200) {
     console.log('all done: ' + xhr.status);
+    //send user to another page after upload is complete
+    location.href = '/start/index';
   } else {
     console.log('Something went terribly wrong...');
   }

@@ -15,7 +15,7 @@
     <% @pollpoints.each do |pollpoint| %>
       <tr>
         <td><%= pollpoint.ssid %></td>
-        <td><%= pollpoint.gps %></td>
+        <td><%= pollpoint.gpspoint %></td>
         <td><%= pollpoint.signal %></td>
         <td><%= pollpoint.rssi %></td>
         <td><%= link_to 'Show', pollpoint %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Pollpoint', new_pollpoint_path %>
+<%= link_to 'New Pollpoint', new_ssid_pollpoint_path %>

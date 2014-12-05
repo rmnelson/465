@@ -1,4 +1,4 @@
 class Pollpoint < ActiveRecord::Base
   belongs_to :ssid
-  belongs_to :gps
+  belongs_to :gpspoint
 end

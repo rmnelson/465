@@ -1,0 +1,161 @@
+<%= @jshide_code.html_safe %> 
+<%= @some_style.html_safe %>
+<h1 style="color:white"><%= @page_header %></h1>
+<center><a href="http://ec2-54-69-75-154.us-west-2.compute.amazonaws.com/doi" border="none"><img src="/images/doi_logo_for_display.gif"></img></a></center>
+<br><br>
+<%= form_tag("/doi", method: "GET") do %>
+<center>
+	<%= text_field_tag(:q, nil, size: 75) %>
+	<br><br>
+        <%= submit_tag "Lookup" %>
+        <%= submit_tag "New" %>
+        <%= submit_tag "Edit" %>
+</center>
+
+<% if params[:commit] == "Update" then %>
+<% updated_doi_his = DoiHistory.new %>
+<% updated_doi_his.name = params[:update_name] %>
+<% updated_doi_his.description = params[:update_desc] %>
+<% updated_doi_his.url = params[:update_url] %>
+<% updated_doi_his.updated = Time.now %>
+<% updated_doi_his.doi_base_id = params[:update_id] %>
+<% updated_doi_his.save %>
+<% @doi_result = DoiBase.find(params[:update_id]) %>
+<center>
+<br>
+<%= @doi_result.doi_path %>
+<%= " has been updated!" %>
+</center>
+<%end%>
+
+<% if params[:commit] == "New" then %>
+<br><br><center>
+<%= label_tag("URL (your http link): ") %>
+<%= text_field_tag(:e_url) %>
+<br>
+<%= label_tag("Name: ") %>
+<%= text_field_tag(:e_name) %>
+<br>
+<%= label_tag("Description: ") %>
+<%= text_field_tag(:e_desc) %>
+<br>
+<%= submit_tag "Create" %>
+<%= params[:q] %>
+</center>
+<% end %>
+
+<% if params[:commit] == "Create" then %>
+<% new_doi = DoiBase.new %>
+<% new_doi_his =  DoiHistory.new %>
+<% new_doi.doi_path = @my_doi_reg + "." + rand(10**8).to_s + "/" + rand(10**12).to_s %>
+<% new_doi_his.name = params[:e_name] %>
+<% new_doi_his.description = params[:e_desc] %>
+<% new_doi_his.url = params[:e_url] %>
+<% new_doi_his.created = Time.now %>
+<% new_doi_his.updated = Time.now %>
+<% new_doi.save %>
+<% new_doi_his.doi_base_id = new_doi.id %>
+<% new_doi_his.save %>
+<% end %>
+
+<% if params[:commit] == "Lookup" then %>
+<br><br><center>
+<% @query = params[:q] %>
+<% if /^[6]{3}.[0-9]{8}.[0-9]{12}$/.match(@query.to_s) then %>
+ <% @DoiBaseResult = DoiBase.where(doi_path: params[:q]) %>
+ <% @DoiBaseResult.each do |r| %>
+  <% @DoiHistoryResult = DoiHistory.where(doi_base_id: r.id).last %> 
+  <%= "<a href=\"".html_safe + @DoiHistoryResult.url + "\">".html_safe + @DoiHistoryResult.url + "</a>".html_safe %>
+ <%end%>
+<% else if !@query.empty? then%>
+ <% @query = "%" + params[:q] + "%" %>
+ <% if (@DoiHistoryResult = DoiHistory.where("name like ?", @query).last) then %>
+ <% @DoiBaseResult = DoiBase.find(@DoiHistoryResult.doi_base_id) %>
+ <%= @DoiBaseResult.doi_path + " matches your search".html_safe %>
+ <br>
+<%end%>
+<% else %>
+<br>
+<br>
+<%= "You didn't search for anything! Try again!!" %>
+<%end%>
+<%end%>
+<% end %>
+
+<% if params[:commit] == "Edit" then %>
+<% if params[:q].empty? %>
+<br><br><center>
+<%= "You didn't search for anything so here are all of them" %>
+<br>
+<br>
+<% @doi_bases.each_with_index do |d, i| %>
+<% @some_html = "<a href=\"#\" id=\"hidden" + i.to_s + "-show\" class=\"showLink\" onclick=\"showHide('hidden" + i.to_s + "');return false;\">Edit.</a>" %>
+<%= d.doi_path %> 
+<%= @some_html.html_safe %>
+<% @p = DoiHistory.where(doi_base_id: d.id).last%>
+<% @some_div =  "<div id=\"hidden" + i.to_s + "\" class=\"more\">" %>
+<%= @some_div.html_safe %>
+<%= form_tag("/doi", method: "GET") do %>
+<%= hidden_field_tag 'update_id', @p.doi_base_id %>
+<%= "Name: ".html_safe + text_field_tag(:update_name, value = @p.name) %>
+<br>
+<%= "Description: ".html_safe + text_field_tag(:update_desc, value = @p.description, size: 60) %>
+<br>
+<%= "URL: ".html_safe + text_field_tag(:update_url, value = @p.url, size: 40) %>
+<br>
+<% @more_html ="<a href=\"#\" id=\"history" + i.to_s + "-show\" class=\"showLink\" onclick=\"showHide('history" + i.to_s + "');return false;\">History</a>" %>
+<% @history_div =  "<div id=\"history" + i.to_s + "\" class=\"more\">" %>
+<% @h =DoiHistory.where(doi_base_id: d.id) %>
+<br>
+<% if @h.count > 1 then %>
+<%= @history_div.html_safe %>
+<% @h.each do |he| %>
+<%= "Name: ".html_safe + he.name %>
+<br>
+<%= "Description: ".html_safe + he.description %>
+<br>
+<%= "URL: ".html_safe + he.url %>
+<br>
+<%= "Last Updated: ".html_safe + he.updated %>
+<br>
+<br>
+<%end%>
+<%= "</div>".html_safe %>
+<%end%>
+<% @more_html +="<a href=\"#\" id=\"hidden" + i.to_s + "-hidden\" class=\"hideLink\" onclick=\"showHide('hidden" + i.to_s + "');return false;\">Less.</a>" %>
+<%= @more_html.html_safe %>
+<br>
+<%= submit_tag "Update" %>
+<%= "</div>".html_safe %>
+<br>
+<%end%>
+<% end %>
+</center>
+<% else %>
+<br>
+<% if /^[6]{3}.[0-9]{8}.[0-9]{12}$/.match(params[:q]) then %>
+ <% @new_q = params[:q] %>
+ <% if (@doibaser = DoiBase.where(doi_path: @new_q.to_s).first) then %>
+  <% @doihistoryr = DoiHistory.where(doi_base_id: @doibaser.id).last %>
+  <center>
+  <%= form_tag("/doi", method: "GET") do %>
+  <%= hidden_field_tag 'update_id', @doibaser.id %>
+  <%= "Name: ".html_safe + text_field_tag(:update_name, value = @doihistoryr.name) %>
+  <br>
+  <%= "Description: ".html_safe + text_field_tag(:update_desc, value = @doihistoryr.description, size: 60) %>
+  <br>
+  <%= "URL: ".html_safe + text_field_tag(:update_url, value = @doihistoryr.url, size: 40) %>
+  <br>
+  <%= submit_tag "Update" %>
+  </center>
+ <% end %>
+ <% end %>
+<% else %>
+<%= "<br><br><center>".html_safe %>
+<%= "I'm sorry the Edit feature only understands known DOI entries! Try again!!" %>
+<%= "</center>".html_safe %>
+<% end %>
+<% end %>
+<% end %>
+
+<% end %>

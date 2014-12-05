@@ -1,0 +1,21 @@
+<%= form_for(@doi) do |f| %>
+  <% if @doi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doi.errors.count, "error") %> prohibited this doi from being saved:</h2>
+
+      <ul>
+      <% @doi.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :doi_path %><br>
+    <%= f.text_field :doi_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

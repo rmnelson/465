@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @doi_url.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @doi_url.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @doi_url.description %>
+</p>
+
+<p>
+  <strong>Doi:</strong>
+  <%= @doi_url.doi %>
+</p>
+
+<%= link_to 'Edit', edit_doi_url_path(@doi_url) %> |
+<%= link_to 'Back', doi_urls_path %>
