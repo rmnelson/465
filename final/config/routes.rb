@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'start/index'
+  get 'start/map'
   post 'start/upload'
 
   resources :ssids do

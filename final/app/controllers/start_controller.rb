@@ -2,6 +2,10 @@ class StartController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:upload]
   def index
   end
+
+  def map
+  end
+
   def upload
 	###this should be migrated to a service object
 	##Lets parse the file and send it to the database
@@ -67,66 +71,77 @@ class StartController < ApplicationController
 
 	@gps_import.each_with_index do |g,gi|
 		if g.count > 0 then
-		#f.write("GPS index is: " + gi.to_s + "\n")
-		#f.write("this is g: ")
-		#f.write(g)
-		#f.write("\n")
-		old_id = g[0]
-		@new_gps = Gpspoint.new
-		@new_gps.latitude = g[1]
-		@new_gps.longitude = g[2]
-		@new_gps.num_sats = g[3]
-		@new_gps.hdofp = g[4]
-		@new_gps.altitude = g[5]
-		@new_gps.hofgae = g[6]
-		@new_gps.speed_km = g[7]
-		@new_gps.speed_mph = g[8]
-		@new_gps.angle = g[9]
-		@new_gps.date = g[10]
-		@new_gps.time = g[11] 
-		@new_gps.save
-		#f.write("DONE WITH GPS index: " + gi.to_s + "\n")
-		
-			#f.write("This is ssid_import.count " + @ssid_import.count.to_s + "\n")
-		#f.write("######SSID INSPECT$$$$$$$\n")
-		#f.write(@ssid_import)
-		#f.write("#END###SSID INSPECT$$$$$$$\n")
-			#f.write("Goint to show columns then t before assignment\n")
-			#f.write(columns)
-			#f.write("end of columns\n")
-		@ssid_import.each_with_index do |ssid_loc, sli|
-			ssid_loc[1].each_with_index do |a_gps, agi| #<---array with each gps location
-				subfields = a_gps.split(",")
-				subfields[0] = subfields.first.to_i == old_id.to_i ? @new_gps.id : subfields.first
-				@ssid_import[sli][1][agi] = subfields.join(",") 
+			if g[3].to_i > 3 then # <-- number of satilites is less than 3 throw it away
+				old_id = g[0]
+				@new_gps = Gpspoint.new
+				@new_gps.latitude = g[1]
+				@new_gps.longitude = g[2]
+				@new_gps.num_sats = g[3]
+				@new_gps.hdofp = g[4]
+				@new_gps.altitude = g[5]
+				@new_gps.hofgae = g[6]
+				@new_gps.speed_km = g[7]
+				@new_gps.speed_mph = g[8]
+				@new_gps.angle = g[9]
+				@new_gps.date = g[10]
+				@new_gps.time = g[11] 
+				@new_gps.save
+				@ssid_import.each_with_index do |ssid_loc, sli|
+					ssid_loc[1].each_with_index do |a_gps, agi| #<---array with each gps location
+						subfields = a_gps.split(",")
+						subfields[0] = subfields.first.to_i == old_id.to_i ? @new_gps.id : subfields.first
+						@ssid_import[sli][1][agi] = subfields.join(",") 
+					end
+				end
+			else
+				@ssid_import.each_with_index do |ssid_loc, sli|
+					ssid_loc[1].each_with_index do |a_gps, agi| #<---array with each gps location
+						subfields = a_gps.split(",")
+						if subfields.first.to_i == old_id.to_i then
+							@ssid_import[sli][1].delete_at(agi)
+						end
+					end
+				end
 			end
-		end
 		end
 	end
 
-	f.write(@ssid_import)
+	#f.write(@ssid_import)
+	all_ssids = Ssid.all
 
-	@ssid_import.each do |ss|
-		@new_ssid = Ssid.new
-		@new_ssid.ssid = ss[0][0]
-		@new_ssid.bssid = ss[0][1]
-		@new_ssid.manufacture = ss[0][2]
-		@new_ssid.auth = ss[0][3]
-		@new_ssid.encryption = ss[0][4]
-		@new_ssid.sec_type = ss[0][5]
-		@new_ssid.radio_type = ss[0][6]
-		@new_ssid.channel = ss[0][7]
-		@new_ssid.transfer_rates = ss[0][8]
-		@new_ssid.special_transfer_rates = ss[0][9]
-		@new_ssid.high_signal = ss[0][10]
-		@new_ssid.high_rssi = ss[0][11]
-		@new_ssid.net_type = ss[0][12]
-		@new_ssid.label = ss[0][13]
-		@new_ssid.save
+	@ssid_import.each do |ss| 
+		if all_ssids.where(ssid: ss[0][0], bssid: ss[0][1]).count == 0 then
+			@new_ssid = Ssid.new
+			@new_ssid.ssid = ss[0][0]
+			@new_ssid.bssid = ss[0][1]
+			@new_ssid.manufacture = ss[0][2]
+			@new_ssid.auth = ss[0][3]
+			@new_ssid.encryption = ss[0][4]
+			@new_ssid.sec_type = ss[0][5]
+			@new_ssid.radio_type = ss[0][6]
+			@new_ssid.channel = ss[0][7]
+			@new_ssid.transfer_rates = ss[0][8]
+			@new_ssid.special_transfer_rates = ss[0][9]
+			@new_ssid.high_signal = ss[0][10]
+			@new_ssid.high_rssi = ss[0][11]
+			@new_ssid.net_type = ss[0][12]
+			@new_ssid.label = ss[0][13]
+			@new_ssid.save
+		else
+			if !ss[0][1].nil? then
+			@new_ssid = Ssid.where(ssid: ss[0][0], bssid: ss[0][1]).first
+			if @new_ssid.high_signal < ss[0][10].to_i then
+				@new_ssid.high_signal = ss[0][10]
+				@new_ssid.high_rssi = ss[0][11]
+			end
+			end
+		end
 		ss[1].each do |pp|
 			ppp = pp.split(",")
-			a_pollpoint = Pollpoint.new(ssid: @new_ssid, gpspoint: Gpspoint.find(ppp[0]), signal: ppp[1], rssi: ppp[2])
-			a_pollpoint.save
+			#if !Pollpoint.exists?(ssid: @new_ssid, signal: ppp[1], rssi: ppp[2]) then  ##<---need to check for dups here
+				a_pollpoint = Pollpoint.new(ssid: @new_ssid, gpspoint: Gpspoint.find(ppp[0]), signal: ppp[1], rssi: ppp[2])
+				a_pollpoint.save
+			#end
 		end
 	end
 	f.close
