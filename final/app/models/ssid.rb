@@ -9,7 +9,7 @@ class Ssid < ActiveRecord::Base
 	end
 
 	begin
-		foo = Gpspoint.find((Pollpoint.where(signal: self.high_signal, ssid_id: self.id).first.id)).lng
+		foo = self.pollpoints.order("signal DESC").first.gpspoint.lng 
 	rescue ActiveRecord::RecordNotFound => e
   	foo = nil
  	end
@@ -20,9 +20,16 @@ class Ssid < ActiveRecord::Base
 	end
 
 	begin
-	foo = Gpspoint.find((Pollpoint.where(signal: self.high_signal, ssid_id: self.id).first.id)).lat
+	foo = self.pollpoints.order("signal DESC").first.gpspoint.lat
 	rescue ActiveRecord::RecordNotFound => e
 	foo = nil
+	end
+ end
+ def ssid_name
+	if self.ssid.empty?
+		"HIDDEN"
+	else
+		self.ssid
 	end
  end
 end

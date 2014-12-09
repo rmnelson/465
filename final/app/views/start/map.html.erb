@@ -29,14 +29,14 @@ handler.buildMap({ internal: {id: 'map'}}, function(){
         count = @ssid.count
         @ssid.each_with_index do |s,i|
                 if i < (count-1) then %>
-                        <%= "{ lat: " + s.pollpoints.order("signal DESC").first.gpspoint.lat.to_s + ", lng: " + s.pollpoints.order("signal DESC").first.gpspoint.lng.to_s + " }," %>
-                <% else %>
-			<% if s.pollpoints.count > 0 then %>
-                        	<%= "{ lat: " + s.pollpoints.order("signal DESC").first.gpspoint.lat.to_s + ", lng: " + s.pollpoints.order("signal DESC").first.gpspoint.lng.to_s + " }" %>
+			<%= raw("{ lat: #{s.first_high_lat}, lng: #{s.first_high_lng}, marker_title: \"#{s.ssid_name}\", infowindow: \"#{s.ssid_name}<h5>#{s.auth}<br> #{s.encryption}</h5>\"},") %>
+                <% else 
+			if !s.first_high_lat.nil? then %>
+				<%= raw("{ lat: #{s.first_high_lat}, lng: #{s.first_high_lng}, marker_title: \"#{s.ssid}\", infowindow: \"#{s.ssid}\"}") %>
 			<% else %>
-	                        <%= "{ lat: 39.737045, " + "lng: -121.8638933" +  " }" %>
-                	<% end
-		end
+	                        <%= raw("{ lat: #{@ssid[0].first_high_lat}, lng: #{@ssid[0].first_high_lng}, marker_title: \"#{@ssid[0].ssid}\", infowindow: \"#{@ssid[0].ssid}\" }") %>
+			<% end %>
+		<% end
         end
 %>
 ]);

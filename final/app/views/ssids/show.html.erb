@@ -108,9 +108,9 @@ handler.buildMap({ internal: {id: 'map'}}, function(){
 	count = @ssid.gpspoints.count
 	@ssid.gpspoints.each_with_index do |point,i|
 		if i < (count-1) then %>
-			<%= "{ lat: " + point.lat.to_s + ", lng: " + point.lng.to_s + ", infowindow: " + @ssid.high_signal.to_s + " }," %> 
+			<%= "{ lat: #{point.lat}, lng: #{point.lng.to_s} }," %> 
 		<% else %>
-			<%= "{ lat: " + point.lat.to_s + ", lng: " + point.lng.to_s + ", infowindow: " + @ssid.high_signal.to_s + " }" %> 
+			<%= "{ lat: #{point.lat}, lng: #{point.lng.to_s} }" %> 
 		<% end
 	end
 %>
