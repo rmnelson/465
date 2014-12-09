@@ -36,11 +36,6 @@ class GpspointsController < ApplicationController
     respond_with(@gpspoint)
   end
 
-    def lat
-	@gpspoint = Gpspoint.find(params[:id])
-	respond_with(@gpspoint.latitude.split(" ",2)[1].to_f%100/60).round(7) + ssid.gpspoints[0].latitude.split(" ",2)[1].to_i/100)
-    end
-
   private
     def set_gpspoint
       @gpspoint = Gpspoint.find(params[:id])

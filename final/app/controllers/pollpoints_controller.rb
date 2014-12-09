@@ -9,6 +9,7 @@ class PollpointsController < ApplicationController
   end
 
   def show
+    @ssid = Ssid.find(params[:ssid_id])
     respond_with(@pollpoint)
   end
 

@@ -6,6 +6,18 @@ class StartController < ApplicationController
   def map
   end
 
+  def clear_all
+	Ssid.delete_all
+	Gpspoint.delete_all
+	Pollpoint.delete_all
+	ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'ssids'")
+	ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'gpspoints'")
+	ActiveRecord::Base.connection.execute("DELETE from sqlite_sequence where name = 'pollpoints'")
+  end
+
+  def samples
+  end
+
   def upload
 	###this should be migrated to a service object
 	##Lets parse the file and send it to the database
@@ -93,16 +105,17 @@ class StartController < ApplicationController
 						@ssid_import[sli][1][agi] = subfields.join(",") 
 					end
 				end
-			else
-				@ssid_import.each_with_index do |ssid_loc, sli|
-					ssid_loc[1].each_with_index do |a_gps, agi| #<---array with each gps location
-						subfields = a_gps.split(",")
-						if subfields.first.to_i == old_id.to_i then
-							@ssid_import[sli][1].delete_at(agi)
-						end
-					end
-				end
 			end
+			#else
+			#	@ssid_import.each_with_index do |ssid_loc, sli|
+			#		ssid_loc[1].each_with_index do |a_gps, agi| #<---array with each gps location
+			#			subfields = a_gps.split(",")
+			#			if subfields.first.to_i == old_id.to_i then
+			#				@ssid_import[sli][1].delete_at(agi)
+			#			end
+			#		end
+			#	end
+			#end
 		end
 	end
 
@@ -129,11 +142,11 @@ class StartController < ApplicationController
 			@new_ssid.save
 		else
 			if !ss[0][1].nil? then
-			@new_ssid = Ssid.where(ssid: ss[0][0], bssid: ss[0][1]).first
-			if @new_ssid.high_signal < ss[0][10].to_i then
-				@new_ssid.high_signal = ss[0][10]
-				@new_ssid.high_rssi = ss[0][11]
-			end
+				@new_ssid = Ssid.where(ssid: ss[0][0], bssid: ss[0][1]).first
+				if @new_ssid.high_signal < ss[0][10].to_i then
+					@new_ssid.high_signal = ss[0][10]
+					@new_ssid.high_rssi = ss[0][11]
+				end
 			end
 		end
 		ss[1].each do |pp|

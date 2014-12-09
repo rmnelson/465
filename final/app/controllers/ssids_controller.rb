@@ -11,6 +11,10 @@ class SsidsController < ApplicationController
   def show
     respond_with(@ssid)
   end
+ 
+  def show_more
+    respond_with(@ssid)
+  end
 
   def new
     @ssid = Ssid.new

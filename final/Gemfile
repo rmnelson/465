@@ -40,9 +40,10 @@ gem 'spring',        group: :development
 
 
 gem 'devise'
-gem 'better_errors'
-gem 'binding_of_caller'
 gem 'seed_dump'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'geocoder'
+gem 'tabulous'
+gem 'better_errors'
+gem 'binding_of_caller'

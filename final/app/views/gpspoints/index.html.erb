@@ -1,5 +1,13 @@
-<h1>Listing gpspoints</h1>
-
+<div class="wrapper">
+<div class="header center">
+<h1>mapwi</h1>
+<%= tabs %>
+</div> <!-- end header center -->
+<div class="content">
+<div id="introduction" class="txt">
+<h1 class="center txt introDirective"> <!--page header here -->
+Listing gpspoints
+<br> <!--main listing here -->
 <table>
   <thead>
     <tr>
@@ -17,7 +25,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @gpspoints.each do |gpspoint| %>
       <tr>
@@ -39,7 +46,14 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
+</br>
 <%= link_to 'New Gpspoint', new_gpspoint_path %>
+<output id="list"></output>
+</div> <!-- end buttonText -->
+</div> <!-- end buttonContent -->
+</div> <!-- end center pasteMsg -->
+</div> <!-- end txt -->
+</div> <!-- end content -->
+</div> <!-- end wrapper-->
+
+

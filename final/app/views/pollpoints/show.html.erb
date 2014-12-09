@@ -1,13 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<div class="wrapper">
+<div class="header center">
+<h1>mapwi</h1>
+<%= tabs %>
+</div> <!-- end header center -->
+<div class="content">
+<div id="introduction" class="txt">
+<h1 class="center txt introDirective">Pollpoints<!--page header here -->
 <p>
   <strong>Ssid:</strong>
-  <%= @pollpoint.ssid %>
+  <%= @ssid.pollpoints.ssid.ssid %>
 </p>
 
 <p>
   <strong>Gps:</strong>
-  <%= @pollpoint.gpspoint %>
+  <%= @ssid.@pollpoint.gpspoint.id %>
 </p>
 
 <p>
@@ -22,3 +29,12 @@
 
 <%= link_to 'Edit', edit_pollpoint_path(@pollpoint) %> |
 <%= link_to 'Back', ssid_pollpoints_path %>
+<br></br> <!--main listing here -->
+<output id="list"></output>
+</div> <!-- end buttonText -->
+</div> <!-- end buttonContent -->
+</div> <!-- end center pasteMsg -->
+</div> <!-- end txt -->
+</div> <!-- end content -->
+</div> <!-- end wrapper-->
+
