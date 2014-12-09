@@ -5,24 +5,24 @@ class Ssid < ActiveRecord::Base
   accepts_nested_attributes_for :pollpoints, :allow_destroy => true
  def first_high_lng
 	if self.high_signal.nil? then
-		return nil
+		return -121.8641317
 	end
 
 	begin
 		foo = self.pollpoints.order("signal DESC").first.gpspoint.lng 
 	rescue ActiveRecord::RecordNotFound => e
-  	foo = nil
+  	foo = -121.8641317 
  	end
  end
  def first_high_lat
 	if self.high_signal.nil? then
-		return nil
+		return 39.738245
 	end
 
 	begin
 	foo = self.pollpoints.order("signal DESC").first.gpspoint.lat
 	rescue ActiveRecord::RecordNotFound => e
-	foo = nil
+	foo = 39.738245
 	end
  end
  def ssid_name

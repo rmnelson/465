@@ -54,12 +54,12 @@ for (var i = 0; i < files.length; i++) {
 
 // now post a new XHR request
 var xhr = new XMLHttpRequest();
-xhr.open('POST', '/start/upload');
+xhr.open('POST', 'start/upload');
 xhr.onload = function () {
   if (xhr.status === 200) {
     console.log('all done: ' + xhr.status);
     //send user to another page after upload is complete
-    location.href = '/start/index';
+    location.href = 'start/index';
   } else {
     console.log('Something went terribly wrong...');
   }
