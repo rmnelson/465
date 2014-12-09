@@ -1,6 +1,6 @@
 <div class="wrapper">
 <div class="header center">
-<h1>mapwi</h1>
+<h1>mapwi</h1><div align="right"><%= if user_signed_in? then link_to "Sign out", destroy_user_session_path, method: :delete end%></div>
 <%= tabs %>
 </div> <!-- end header center -->
 <div class="content">

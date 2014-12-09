@@ -1,0 +1,1168 @@
+/* line 4, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.txt {
+  font-family: "Trebuchet MS","Lucida Sans Unicode","Lucida Grande","Lucida Sans",Helvetica,Arial,sans-serif;
+  font-style: normal;
+  margin: 0;
+}
+
+/* line 10, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+* {
+  margin: 0;
+}
+
+/* line 14, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+body {
+  min-width: 900px;
+}
+
+/* line 18, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+/* line 25, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.content {
+  clear: both;
+}
+
+/* line 29, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 33, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 37, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+img {
+  border: 0;
+}
+
+/* line 41, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.center {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 48, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.icon {
+  background-image: url("../images/icons.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/* line 54, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.icon-footer {
+  margin: 8px;
+}
+
+/* line 58, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.line {
+  float: left;
+  background-color: #5d6064;
+  width: 424px;
+  height: 2px;
+  margin-top: 14px;
+}
+
+/* line 66, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.right {
+  float: right;
+}
+
+/* line 70, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.small {
+  width: 16px;
+  height: 16px;
+}
+
+/* line 75, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.large {
+  width: 32px;
+  height: 32px;
+  margin: 0 0 0 8px;
+}
+
+/* line 81, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.facebookSmall {
+  background-position: -16px 0;
+}
+
+/* line 85, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.twitterSmall {
+  background-position: -16px -16px;
+}
+
+/* line 89, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.iconHolder {
+  clear: left;
+  width: 104px;
+}
+
+/* line 94, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.gplusIcon {
+  float: left;
+  margin: 9px 8px 8px 8px;
+}
+
+/* line 99, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.facebookSmall:hover {
+  background-position: -16px -32px;
+}
+
+/* line 103, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.twitterSmall:hover {
+  background-position: -16px -48px;
+}
+
+/* line 107, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.facebook {
+  background-position: -32px 0;
+}
+
+/* line 111, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.facebook:hover {
+  background-position: -32px -32px;
+}
+
+/* line 115, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.twitter {
+  background-position: -64px 0;
+}
+
+/* line 119, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.twitter:hover {
+  background-position: -64px -32px;
+}
+
+/* line 123, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.reddit {
+  background-position: -96px 0;
+}
+
+/* line 127, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.reddit:hover {
+  background-position: -96px -32px;
+}
+
+/* line 131, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.digg {
+  background-position: -128px 0;
+}
+
+/* line 135, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.digg:hover {
+  background-position: -128px -32px;
+}
+
+/* line 139, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.stumbleupon {
+  background-position: -160px 0;
+}
+
+/* line 143, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.stumbleupon:hover {
+  background-position: -160px -32px;
+}
+
+/* line 147, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#appletArea {
+  visibility: hidden;
+}
+
+/* line 151, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -140px;
+  background-color: #3c444d;
+}
+
+/* line 159, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header, .footer {
+  background-color: #2c3034;
+}
+
+/* line 164, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.short {
+  height: 50px !important;
+}
+
+/* line 168, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header {
+  border-bottom-color: #e6fdff;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+/* line 174, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.push {
+  height: 140px;
+}
+
+/* line 178, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.footer {
+  border-top-color: #e6fdff;
+  border-top-style: solid;
+  border-top-width: 2px;
+}
+
+/* line 184, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.ie, .ie a {
+  color: #5f7666 !important;
+}
+
+/* line 188, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.footer .info {
+  margin-top: .75em;
+  line-height: 2em;
+}
+
+/* line 193, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.darkEmbossText, .darkEmbossText a {
+  font-size: 1.2em;
+  color: #e6fdff;
+}
+
+/* line 198, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+not-ie9 .darkEmbossText, not-ie9 .darkEmbossText a {
+  text-shadow: 0 1px 1px black;
+}
+
+/* line 202, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.darkEmbossText a:hover {
+  color: #8fd3ff;
+}
+
+/* line 206, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+not-ie9 .darkEmbossText a:hover {
+  text-shadow: 0 -1px 1px black;
+}
+
+/* line 210, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.darkEmbossText strong {
+  font-weight: bold;
+}
+
+/* line 214, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.darkEmbossText a sup {
+  color: wheat;
+}
+
+/* line 218, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.darkEmbossText a:hover sup {
+  color: #c67171;
+}
+
+/* line 222, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.content {
+  background-color: #3c444d;
+  min-height: 50%;
+}
+
+/* line 227, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.introDirective {
+  min-height: 5.4em;
+}
+
+/* line 231, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+h1 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 2em;
+  color: #e6fdff;
+  line-height: 1.5em;
+}
+
+/* line 239, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 h1 {
+  text-shadow: -1px -1px 1px #101215;
+  filter: dropshadow(color=#101215, offX=-1, offY=-2);
+}
+
+/* line 244, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+h4 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #e6fdff;
+  line-height: 2em;
+}
+
+/* line 252, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 h4 {
+  text-shadow: -1px -2px 1px #101215;
+  filter: dropshadow(color=#101215, offX=-1, offY=-2);
+}
+
+/* line 257, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.shareAreaTop {
+  margin: 9px 5px 8px 8px;
+}
+
+/* line 261, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.shareBox {
+  width: 204px;
+  position: relative;
+  z-index: 2;
+}
+
+/* line 267, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.left {
+  float: left;
+  position: relative;
+  z-index: 2;
+}
+
+/* line 273, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.absoluteLeft {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  min-width: 531px;
+}
+
+/* line 281, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.logo {
+  float: left;
+  border: 0;
+}
+
+/* line 286, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+a img {
+  border: 0;
+}
+
+/* line 290, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header a:link, .header a:visited, h2 a:link, h2 a:visited {
+  color: #e6fdff;
+}
+
+/* line 294, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header a:hover, h2 a:hover {
+  color: white;
+}
+
+/* line 298, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header a:active, h2 a:active {
+  color: #e6fdff;
+}
+
+/* line 302, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.header h2 a:hover, h2 a:hover {
+  text-decoration: underline;
+}
+
+/* line 306, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.deleteText {
+  position: relative;
+  bottom: 185px;
+  width: 100%;
+  height: 0;
+}
+
+/* line 313, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#duction {
+  margin-top: 10px;
+}
+
+/* line 317, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.floatTop {
+  position: absolute;
+  width: 100%;
+  margin-top: 7px;
+  z-index: 1;
+}
+
+/* line 324, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.shareAlerter {
+  margin-right: 0;
+  visibility: hidden;
+  position: relative;
+}
+
+/* line 330, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+h2 {
+  font-style: normal;
+  font-size: 1em;
+  color: #e6fdff;
+  line-height: 2em;
+}
+
+/* line 337, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+h3 {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 26px;
+  color: #e6fdff;
+  text-decoration: none;
+  outline: 0;
+}
+
+/* line 346, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 h3 {
+  text-shadow: -1px -1px 1px #101215;
+  filter: dropshadow(color=#101215, offX=-1, offY=-2);
+}
+
+/* line 351, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.arrow {
+  font-family: Arial;
+  font-size: 2em;
+}
+
+/* line 356, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.button, .bigButton {
+  background-color: #76babd;
+  border-style: solid;
+  border-color: #8fd3ff #5f7666 #5f7666 #8fd3ff;
+  color: #e6fdff;
+}
+
+/* line 363, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.loader {
+  margin: 50px auto;
+  font-size: 2em;
+  line-height: 2em;
+  display: none;
+}
+
+/* line 370, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.pasteMsg {
+  background-color: #3e4c5d;
+  border-style: dashed;
+  border-color: #ffa61a;
+  border-width: 4px;
+  color: #e6fdff;
+  height: 214px;
+  width: 746px;
+}
+
+/* line 380, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.orange {
+  color: #ffa61a;
+}
+
+/* line 384, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.pasteMsg .buttonContent {
+  font-weight: bold;
+}
+
+/* line 388, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.pasteMsg .buttonContent .buttonText {
+  margin: 60px auto;
+  font-weight: bold;
+}
+
+/* line 393, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.small {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+/* line 398, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.pasteMsg .buttonContent .big {
+  font-size: 4em;
+}
+
+/* line 402, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 .pasteMsg .buttonContent {
+  text-shadow: -2px -2px 1px #3f454b;
+  filter: dropshadow(color=#3f454b, offX=-2, offY=-2);
+}
+
+/* line 407, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.disabledButton {
+  border-width: 3px;
+  border-style: solid;
+  background-color: #999 !important;
+  border-color: #c7c7c7 #6a6a6a #6a6a6a #c7c7c7 !important;
+  color: #c2cbcc !important;
+}
+
+/* line 415, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.bigDisabledButton {
+  border-width: 8px;
+  font-weight: bold;
+  border-style: solid;
+  background-color: #999;
+  border-color: #c7c7c7 #6a6a6a #6a6a6a #c7c7c7;
+  color: #c2cbcc;
+}
+
+/* line 424, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.bigButton {
+  border-width: 8px;
+  font-weight: bold;
+}
+
+/* line 429, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 .bigButton {
+  filter: blur(add=true, direction=315, strength=2);
+  -webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+/* line 436, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.button {
+  border-width: 3px;
+}
+
+@-webkit-keyframes pulse {
+  /* line 441, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+  0 {
+    background-color: #9ad4d7;
+  }
+
+  /* line 445, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+  50% {
+    background-color: #76babd;
+  }
+
+  /* line 449, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+  100% {
+    background-color: #9ad4d7;
+  }
+}
+
+/* line 455, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.button:hover, .bigButton:hover, .copyButton.hover, .fadedCopyButton.hover {
+  background-color: #9ad4d7;
+  border-color: #b2e0ff #6c8072 #6c8072 #b2e0ff !important;
+  cursor: pointer;
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+/* line 466, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.button:active, .bigButton:active, .copyButton.active, .fadedCopyButton.active {
+  -webkit-animation-name: none;
+  background-color: #7ca4a6;
+  border-color: #6c8072 #b2e0ff #b2e0ff #6c8072 !important;
+  color: #c2cbcc;
+  cursor: pointer;
+}
+
+/* line 474, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.activeButton {
+  background-color: #aef3f7;
+  border-color: #d0ffff #7e9685 #7e9685 #d0ffff;
+  border-width: 3px;
+  border-style: solid;
+}
+
+/* line 481, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#pasteImageButton {
+  height: 214px;
+  width: 746px;
+}
+
+/* line 486, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#pasteImageButton .buttonContent {
+  margin: 60px auto;
+  font-size: 4em;
+}
+
+/* line 491, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 #pasteImageButton .buttonContent {
+  text-shadow: -2px -2px 1px #3f454b;
+  filter: dropshadow(color=#3f454b, offX=-2, offY=-2);
+}
+
+/* line 496, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.vcOutside {
+  display: table;
+  #position: relative;
+  overflow: hidden;
+}
+
+/* line 502, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.vcInside {
+  position: relative;
+  #position: absolute;
+  #top: 50%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* line 511, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.vcContent {
+  #position: relative;
+  #top: -50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 518, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.insetDark {
+  background-color: #353b43;
+  border-style: solid;
+  border-width: 3px 2px 2px 3px;
+  border-color: #2c3034 #5d6064 #5d6064 #2c3034;
+}
+
+/* line 525, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#accordion {
+  width: 100%;
+}
+
+/* line 529, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#infoArea {
+  width: 800px;
+  margin-top: 50px;
+  margin-bottom: 200px;
+  text-align: left;
+  visibility: hidden;
+}
+
+/* line 537, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.accordion-content {
+  overflow: hidden;
+}
+
+/* line 541, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.accordion-content p {
+  padding: 1em 2.2em;
+}
+
+/* line 545, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+em {
+  color: #8fd3ff;
+  font-style: normal;
+}
+
+/* line 550, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.hintMain {
+  float: left;
+  margin: 10px;
+  text-align: justify;
+  font-size: 16px;
+}
+
+/* line 557, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.hintImage {
+  margin: 10px;
+  float: right;
+}
+
+/* line 562, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mac {
+  display: none;
+}
+
+/* line 566, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.overlay1 {
+  background-image: url("../images/example.png");
+}
+
+/* line 570, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.overlay2 {
+  background-image: url("../images/example2.png");
+}
+
+/* line 574, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat;
+  opacity: .50;
+  filter: Alpha(Opacity=50);
+}
+
+/* line 585, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBox {
+  position: relative;
+  background-color: #353b43;
+  border-style: solid;
+  border-width: 3px 2px 2px 3px;
+  border-color: #5d6064 #2c3034 #2c3034 #5d6064;
+  text-align: left;
+  font-size: 16px;
+  color: #fff;
+  padding: 25px;
+}
+
+/* line 597, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.normal {
+  width: 300px;
+  height: 225px;
+}
+
+/* line 602, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.normalPlus {
+  width: 300px;
+  height: 250px;
+}
+
+/* line 607, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.confirm {
+  width: 400px;
+  height: 325px;
+}
+
+/* line 612, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBox h3 {
+  color: #8fd3ff;
+  margin: 0;
+}
+
+/* line 617, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBox p {
+  margin: -5px 0 10px 0;
+}
+
+/* line 621, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBox a {
+  font-weight: bold;
+}
+
+/* line 625, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBg {
+  position: absolute;
+  z-index: 999999;
+}
+
+/* line 630, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 634, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.messageBg .vcOutside {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* line 642, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.msgButton {
+  position: absolute;
+}
+
+/* line 646, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.normalMsg {
+  right: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 50px;
+}
+
+/* line 653, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.confirmYes {
+  right: 125px;
+  bottom: 25px;
+  width: 200px;
+  height: 50px;
+}
+
+/* line 660, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.confirmNo {
+  right: 25px;
+  bottom: 25px;
+  width: 75px;
+  height: 50px;
+}
+
+/* line 667, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.msgButton .buttonContent {
+  margin: 10px auto;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* line 673, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 .msgButton .buttonContent {
+  text-shadow: -1px -1px 1px #3f454b;
+  filter: dropshadow(color=#3f454b, offX=-1, offY=-1);
+}
+
+/* line 678, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#mainArea {
+  width: auto;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+}
+
+/* line 684, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#mainArea .info {
+  width: 625px;
+  padding: 10px 0 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 691, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#outputArea .vcOutside {
+  width: 621px;
+  height: 2em;
+}
+
+/* line 696, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#outputArea {
+  text-align: center;
+  background-color: #e6fdff;
+  font-family: "Helvetica","Arial",sans-serif;
+  font-size: 2.7em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #9a9a9a #eee #eee #9c9c9c;
+  position: relative;
+}
+
+/* line 707, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#outputText a {
+  color: #2c3034;
+  text-decoration: none;
+}
+
+/* line 712, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#outputText a:hover {
+  color: #2483c1;
+  text-decoration: underline;
+}
+
+/* line 717, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#outputText a:active {
+  color: #8fd3ff;
+  text-decoration: underline;
+}
+
+/* line 722, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.fadedButton {
+  background-color: #aedcde;
+  border-style: solid;
+  border-color: #bbe8ff #a3bab3 #a3bab3 #bbe8ff;
+}
+
+/* line 728, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.sprite {
+  background-image: url("../images/editorIcons.png");
+}
+
+/* line 732, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.tooltip {
+  display: none;
+  background-color: #e6fdff;
+  width: 100px;
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  font-size: .25em;
+  padding: 5px;
+  border: solid 2px #2c3034;
+  color: #2c3034;
+  font-weight: bold;
+  opacity: .90;
+  filter: Alpha(Opacity=90);
+}
+
+/* line 748, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.copyButton {
+  width: 33px;
+  height: 33px;
+  top: 3px;
+  right: 3px;
+  position: absolute;
+  background-position: -220px 0;
+}
+
+/* line 757, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.fadedCopyButton {
+  width: 33px;
+  height: 33px;
+  top: 3px;
+  right: 3px;
+  position: absolute;
+  background-position: -254px 0;
+}
+
+/* line 766, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#messageSlider {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 3px;
+  height: 33px;
+  font-size: .2em;
+  font-weight: bold;
+  color: #999;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* line 779, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#messageSlider .vcOutside {
+  height: inherit;
+  width: inherit;
+}
+
+/* line 784, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.loader {
+  display: none;
+  margin-top: 25px;
+}
+
+/* line 789, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#launchEditorButton {
+  height: 50px;
+  width: 609px;
+  margin-top: 10px;
+}
+
+/* line 795, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#launchEditorButton .buttonContent {
+  margin: 4px auto;
+  font-size: 2em;
+}
+
+/* line 800, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.not-ie9 #launchEditorButton .buttonContent {
+  text-shadow: -1px -1px 1px #3f454b;
+  filter: dropshadow(color=#3f454b, offX=-1, offY=-1);
+}
+
+/* line 805, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainImage {
+  margin: 10px auto 50px auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 812, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.bgHeader {
+  background-color: #2c3034;
+  height: 50px;
+  border-bottom-color: #e6fdff;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  position: absolute;
+  top: 0;
+}
+
+/* line 822, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.bgFooter {
+  background-color: #2c3034;
+  height: 138px;
+  border-top-color: #e6fdff;
+  border-top-style: solid;
+  border-top-width: 2px;
+  position: absolute;
+  z-index: -1;
+  margin-top: -2px;
+}
+
+/* line 833, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainColumn {
+  width: 750px;
+  margin: 25px auto 25px auto;
+}
+
+/* line 838, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo {
+  color: #fff;
+  font-size: 1em;
+  padding: 25px;
+}
+
+/* line 844, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.osSwitcher {
+  cursor: pointer;
+  cursor: hand;
+  font-size: .8em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* line 852, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo a, .mainInfo a:visited, .messageBox a, .messageBox a:visited, .hintMain a, .hintMain a:visited {
+  color: #8fd3ff;
+}
+
+/* line 856, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo a:hover, .messageBox a:hover, .hintMain a:hover {
+  color: #e6fdff;
+}
+
+/* line 860, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo a:active, .messageBox a:active, .hintMain a:active {
+  color: white;
+}
+
+/* line 864, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 869, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+.mainInfo ul li {
+  margin-top: 10px;
+}
+
+/* line 873, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+input[type="submit"] {
+  color: black;
+  background: white;
+  padding: 5px 25px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* line 881, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+input[type="submit"]:hover {
+  background: #8fd3ff;
+}
+
+/* line 885, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+button.user {
+  color: black;
+  background: white;
+  padding: 5px 25px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* line 893, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+button.user:hover {
+  background: #8fd3ff;
+}
+
+/* line 897, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+table.usertable {
+  border-collapse: collapse;
+}
+
+/* line 901, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+th.usertable {
+  border-bottom: 2px solid #6678b1;
+  padding: 10px 8px;
+  font-size: 18px;
+}
+
+/* line 907, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+td.usertable {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 913, /var/www/465/final/app/assets/stylesheets/default.css.scss */
+#map {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 1, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /var/www/465/final/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

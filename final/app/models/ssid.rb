@@ -26,6 +26,9 @@ class Ssid < ActiveRecord::Base
 	end
  end
  def ssid_name
+	if self.ssid.nil? then
+		return ""
+	end
 	if self.ssid.empty?
 		"HIDDEN"
 	else

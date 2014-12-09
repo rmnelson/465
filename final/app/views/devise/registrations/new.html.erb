@@ -1,8 +1,19 @@
-<h2>Sign up</h2>
+<div class="wrapper">
+<div class="header center">
+<h1>mapwi</h1>
+<%= tabs %>
+</div> <!-- end header center -->
+<div class="content">
+<div id="introduction" class="txt">
+<h1 class="center txt introDirective">Sign up <!--page header here -->
+<br></br> <!--main listing here -->
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -27,3 +38,10 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<output id="list"></output>
+</div> <!-- end buttonText -->
+</div> <!-- end buttonContent -->
+</div> <!-- end center pasteMsg -->
+</div> <!-- end txt -->
+</div> <!-- end content -->
+</div> <!-- end wrapper-->

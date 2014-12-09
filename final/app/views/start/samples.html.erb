@@ -1,0 +1,17 @@
+<div class="wrapper">
+<div class="header center">
+<h1>mapwi</h1><div align="right"><%= if user_signed_in? then link_to "Sign out", destroy_user_session_path, method: :delete end%></div>
+<%= tabs %>
+</div> <!-- end header center -->
+<div class="content">
+<div id="introduction" class="txt">
+<h1 class="center txt introDirective"> <!--page header here -->
+Sample Files</h1>
+<br><center><h3><%= link_to "Small Sample", "/2014-11-26 01-39-22.VS1" %></br> <!--main listing here -->
+<output id="list"></output>
+</div> <!-- end buttonText -->
+</div> <!-- end buttonContent -->
+</div> <!-- end center pasteMsg -->
+</div> <!-- end txt -->
+</div> <!-- end content -->
+</div> <!-- end wrapper-->
